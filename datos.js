@@ -45,6 +45,7 @@ function agregarDatosHeatMap(anio, datos) {
 
 // Datos de los años y localidades
 data = {
+  
   2024: [
         ['Usaquen', 374], ['Chapinero', 137], ['Santa Fe', 145], ['San Cristobal', 461],
         ['Usme', 437], ['Tunjuelito', 195], ['Bosa', 602], ['Kennedy', 919],
@@ -86,7 +87,43 @@ data = {
         ['Ciudad Bolivar', 745], ['Sumapaz', 0]
     ]
 };
-
+data_2 = {   
+  
+     2024: [['Usaquen', 39], ['Chapinero', 19], ['Santa Fe', 10], ['San Cristobal', 28], 
+           ['Usme', 24], ['Tunjuelito', 13], ['Bosa', 38], ['Kennedy', 52], 
+           ['Fontibon', 13], ['Engativa', 34], ['Suba', 51], ['Barrios Unidos', 7], 
+           ['Teusaquillo', 10], ['Los Martires', 9], ['Antonio Narino', 4], 
+           ['Puente Aranda', 8], ['La Candelaria', 3], ['Rafael Uribe Uribe', 23], 
+           ['Ciudad Bolivar', 42], ['Sumapaz', 0]],
+    
+    2025: [['Usaquen', 41], ['Chapinero', 19], ['Santa Fe', 10], ['San Cristobal', 29], 
+           ['Usme', 25], ['Tunjuelito', 14], ['Bosa', 40], ['Kennedy', 54], 
+           ['Fontibon', 13], ['Engativa', 35], ['Suba', 53], ['Barrios Unidos', 8], 
+           ['Teusaquillo', 11], ['Los Martires', 10], ['Antonio Narino', 4], 
+           ['Puente Aranda', 8], ['La Candelaria', 3], ['Rafael Uribe Uribe', 24], 
+           ['Ciudad Bolivar', 43], ['Sumapaz', 0]],
+    
+    2026: [['Usaquen', 42], ['Chapinero', 20], ['Santa Fe', 11], ['San Cristobal', 31], 
+           ['Usme', 27], ['Tunjuelito', 14], ['Bosa', 42], ['Kennedy', 56], 
+           ['Fontibon', 13], ['Engativa', 35], ['Suba', 55], ['Barrios Unidos', 8], 
+           ['Teusaquillo', 11], ['Los Martires', 10], ['Antonio Narino', 4], 
+           ['Puente Aranda', 8], ['La Candelaria', 3], ['Rafael Uribe Uribe', 25], 
+           ['Ciudad Bolivar', 44], ['Sumapaz', 0]],
+    
+    2027: [['Usaquen', 44], ['Chapinero', 21], ['Santa Fe', 11], ['San Cristobal', 32], 
+           ['Usme', 28], ['Tunjuelito', 15], ['Bosa', 44], ['Kennedy', 58], 
+           ['Fontibon', 13], ['Engativa', 36], ['Suba', 57], ['Barrios Unidos', 8], 
+           ['Teusaquillo', 11], ['Los Martires', 11], ['Antonio Narino', 4], 
+           ['Puente Aranda', 8], ['La Candelaria', 3], ['Rafael Uribe Uribe', 26], 
+           ['Ciudad Bolivar', 45], ['Sumapaz', 0]],
+    
+    2028: [['Usaquen', 46], ['Chapinero', 22], ['Santa Fe', 11], ['San Cristobal', 33], 
+           ['Usme', 29], ['Tunjuelito', 16], ['Bosa', 46], ['Kennedy', 60], 
+           ['Fontibon', 13], ['Engativa', 37], ['Suba', 59], ['Barrios Unidos', 8], 
+           ['Teusaquillo', 12], ['Los Martires', 12], ['Antonio Narino', 4], 
+           ['Puente Aranda', 7], ['La Candelaria', 3], ['Rafael Uribe Uribe', 27], 
+           ['Ciudad Bolivar', 46], ['Sumapaz', 0]]
+};
 
 // Crear una lista de años
 const anios = [];
@@ -136,6 +173,7 @@ function updateHeatMap(year) {
     }
 }
 
+
 // Inicializa el mapa con datos de 2012
 updateHeatMap(2024);
 
@@ -143,4 +181,42 @@ updateHeatMap(2024);
 document.getElementById('yearSelect').addEventListener('change', function() {
     const selectedYear = this.value;
     updateHeatMap(selectedYear);
+});
+
+function llenarTabla(year) {
+    const tabla = document.getElementById('tabla-datos-localidades');
+    tabla.innerHTML = ''; // Limpia la tabla antes de llenarla
+
+    const intentosAnuales = data[year];
+    const casosAnuales = data_2[year];
+
+    if (intentosAnuales && casosAnuales) {
+        intentosAnuales.forEach((intento, index) => {
+            const [localidadIntento, intentos] = intento;
+            const [localidadCaso, casos] = casosAnuales[index];
+
+            // Verifica que los nombres de las localidades coincidan
+            if (localidadIntento === localidadCaso) {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${localidadIntento}</td>
+                    <td>${intentos}</td>
+                    <td>${casos}</td>
+                `;
+                tabla.appendChild(fila);
+            }
+        });
+    }
+}
+
+// Evento para actualizar la tabla y el mapa cuando se cambia el año en el selector
+document.getElementById('yearSelect').addEventListener('change', function() {
+    const selectedYear = this.value;
+    llenarTabla(selectedYear);
+    // Aquí puedes agregar la lógica para actualizar el mapa según el año seleccionado
+});
+
+// Llama a la función llenarTabla con el año inicial al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    llenarTabla('2024');
 });
