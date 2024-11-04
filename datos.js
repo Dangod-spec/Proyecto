@@ -116,7 +116,47 @@ data = {
            ['Fontibón', 294], ['Engativá', 640], ['Suba', 919], ['Barrios Unidos', 168], 
            ['Teusaquillo', 148], ['Los Mártires', 83], ['Antonio Nariño', 74], 
            ['Puente Aranda', 211], ['La Candelaria', 29], ['Rafael Uribe Uribe', 405], 
-           ['Ciudad Bolívar', 731], ['Sumapaz', 999999]],
+           ['Ciudad Bolívar', 731], ['Sumapaz', 1]],
+  2024: [
+        ['Usaquen', 374], ['Chapinero', 137], ['Santa Fe', 145], ['San Cristobal', 461],
+        ['Usme', 437], ['Tunjuelito', 195], ['Bosa', 602], ['Kennedy', 919],
+        ['Fontibon', 274], ['Engativa', 742], ['Suba', 989], ['Barrios Unidos', 131],
+        ['Teusaquillo', 175], ['Los Martires', 110], ['Antonio Narino', 87],
+        ['Puente Aranda', 222], ['La Candelaria', 29], ['Rafael Uribe Uribe', 374],
+        ['Ciudad Bolivar', 637], ['Sumapaz', 0]
+    ],
+    2025: [
+        ['Usaquen', 397], ['Chapinero', 146], ['Santa Fe', 154], ['San Cristobal', 492],
+        ['Usme', 459], ['Tunjuelito', 203], ['Bosa', 632], ['Kennedy', 982],
+        ['Fontibon', 288], ['Engativa', 804], ['Suba', 1064], ['Barrios Unidos', 138],
+        ['Teusaquillo', 189], ['Los Martires', 116], ['Antonio Narino', 92],
+        ['Puente Aranda', 237], ['La Candelaria', 31], ['Rafael Uribe Uribe', 395],
+        ['Ciudad Bolivar', 664], ['Sumapaz', 0]
+    ],
+    2026: [
+        ['Usaquen', 421], ['Chapinero', 156], ['Santa Fe', 164], ['San Cristobal', 523],
+        ['Usme', 482], ['Tunjuelito', 212], ['Bosa', 662], ['Kennedy', 1045],
+        ['Fontibon', 301], ['Engativa', 867], ['Suba', 1140], ['Barrios Unidos', 145],
+        ['Teusaquillo', 202], ['Los Martires', 122], ['Antonio Narino', 97],
+        ['Puente Aranda', 252], ['La Candelaria', 33], ['Rafael Uribe Uribe', 415],
+        ['Ciudad Bolivar', 691], ['Sumapaz', 0]
+    ],
+    2027: [
+        ['Usaquen', 444], ['Chapinero', 165], ['Santa Fe', 174], ['San Cristobal', 554],
+        ['Usme', 505], ['Tunjuelito', 221], ['Bosa', 691], ['Kennedy', 1109],
+        ['Fontibon', 315], ['Engativa', 930], ['Suba', 1216], ['Barrios Unidos', 153],
+        ['Teusaquillo', 216], ['Los Martires', 128], ['Antonio Narino', 102],
+        ['Puente Aranda', 267], ['La Candelaria', 34], ['Rafael Uribe Uribe', 436],
+        ['Ciudad Bolivar', 718], ['Sumapaz', 0]
+    ],
+    2028: [
+        ['Usaquen', 467], ['Chapinero', 175], ['Santa Fe', 183], ['San Cristobal', 585],
+        ['Usme', 528], ['Tunjuelito', 229], ['Bosa', 721], ['Kennedy', 1172],
+        ['Fontibon', 328], ['Engativa', 992], ['Suba', 1291], ['Barrios Unidos', 160],
+        ['Teusaquillo', 229], ['Los Martires', 135], ['Antonio Narino', 107],
+        ['Puente Aranda', 282], ['La Candelaria', 36], ['Rafael Uribe Uribe', 457],
+        ['Ciudad Bolivar', 745], ['Sumapaz', 0]
+    ]
 };
 
 
