@@ -1,0 +1,127 @@
+/* Reset general y estructura básica */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de cabecera y navegación */
+header {
+    background-color: #33334d;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #f5f5f5;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #6a67ce;
+}
+
+/* Estilos del contenedor principal */
+.home_main_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 40px;
+    background-color: #29293d;
+}
+
+.left_databases, .right_objectives {
+    background-color: #3a3a57;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left_databases h2, .right_objectives h1 {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    color: #e5e5f7;
+}
+
+.left_databases p, .right_objectives p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #c8c8d1;
+    padding: 10px 0;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: #f5f5f5;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.download-link:hover {
+    background-color: #45a049;
+}
+
+/* Pie de página */
+footer {
+    background-color: #33334d;
+    padding: 20px;
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-right li {
+    list-style: none;
+}
+
+.footer-right li a {
+    color: #f5f5f5;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-right li a:hover {
+    color: #6a67ce;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .home_main_grid {
+        grid-template-columns: 1fr;
+    }
+}
