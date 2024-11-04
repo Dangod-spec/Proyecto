@@ -137,7 +137,7 @@ function updateHeatMap(year) {
 }
 
 // Inicializa el mapa con datos de 2012
-updateHeatMap(2012);
+updateHeatMap(2024);
 
 // Evento para el cambio de año en el selector
 document.getElementById('yearSelect').addEventListener('change', function() {
