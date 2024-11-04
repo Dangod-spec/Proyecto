@@ -116,7 +116,7 @@ data = {
            ['Fontibón', 294], ['Engativá', 640], ['Suba', 919], ['Barrios Unidos', 168], 
            ['Teusaquillo', 148], ['Los Mártires', 83], ['Antonio Nariño', 74], 
            ['Puente Aranda', 211], ['La Candelaria', 29], ['Rafael Uribe Uribe', 405], 
-           ['Ciudad Bolívar', 731], ['Sumapaz', 1]],
+           ['Ciudad Bolívar', 731], ['Sumapaz', 999999]],
 };
 
 
