@@ -81,6 +81,21 @@ nav ul li a.active {
     line-height: 1.6;
     color: #c8c8d1;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #cdd2da;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
 
 /* Estilo del título del mapa */
 .map-title {
@@ -91,7 +106,7 @@ nav ul li a.active {
 }
 
 /* Estilo para el selector de año */
-#añoSelector {
+#yearSelect {
     display: block;
     margin: 0 auto 20px;
     font-size: 1.6rem;
@@ -104,7 +119,7 @@ nav ul li a.active {
     transition: background-color 0.3s;
 }
 
-#añoSelector:hover {
+#yearSelect:hover {
     background-color: #6a67ce;
 }
 
