@@ -254,15 +254,9 @@ function updateHeatMap(year) {
     }
 }
 
+
 // Inicializa el mapa con datos de 2012
 updateHeatMap(2012);
-
-// Evento para el cambio de año en el selector
-document.getElementById('yearSelect').addEventListener('change', function() {
-    const selectedYear = this.value;
-    updateHeatMap(selectedYear);
-});
-
 
 // Evento para el cambio de año en el selector
 document.getElementById('yearSelect').addEventListener('change', function() {
@@ -285,11 +279,11 @@ function llenarTabla(year) {
             // Verifica que los nombres de las localidades coincidan
             if (localidadIntento === localidadCaso) {
                 const fila = document.createElement('tr');
-                fila.innerHTML = 
+                fila.innerHTML = `
                     <td>${localidadIntento}</td>
                     <td>${intentos}</td>
                     <td>${casos}</td>
-                ;
+                `;
                 tabla.appendChild(fila);
             }
         });
@@ -300,8 +294,14 @@ function llenarTabla(year) {
 document.getElementById('yearSelect').addEventListener('change', function() {
     const selectedYear = this.value;
     llenarTabla(selectedYear);
-  
+    // Aquí puedes agregar la lógica para actualizar el mapa según el año seleccionado
 });
+
+// Llama a la función llenarTabla con el año inicial al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    llenarTabla('2024');
+});
+
 
 let etiquetas = []; // Array para almacenar las etiquetas de las localidades
 
@@ -322,7 +322,7 @@ function ponerEtiquetas() {
                 
                 if (nombreLocalidad) {
                     const etiqueta = L.marker([lat, lng])
-                        .bindPopup(${nombreLocalidad}: ${cases} casos)
+                        .bindPopup(`${nombreLocalidad}: ${cases} casos`)
                         .addTo(map);
                     etiquetas.push(etiqueta); // Guarda la etiqueta para poder manejarla
                 }
@@ -336,9 +336,3 @@ function ponerEtiquetas() {
         etiquetas = []; // Limpia el array de etiquetas
     }
 }
-
-
-// Llama a la función llenarTabla con el año inicial al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    llenarTabla('2012');
-});
