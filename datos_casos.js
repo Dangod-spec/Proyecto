@@ -165,7 +165,6 @@ data_2={
 data = data1;
 
 function cambiarBaseDeDatos() {
-  console.log(data1);
     // Alterna entre data1 y data2
     data = (data === data1) ? data_2 : data1;
  	Object.keys(heatData).forEach(key => delete heatData[key]);// Crear una lista de años
@@ -295,7 +294,7 @@ function updateHeatMap(year) {
 
 
 // Inicializa el mapa con datos de 2012
-updateHeatMap(2012);
+updateHeatMap(2024);
 
 // Evento para el cambio de año en el selector
 document.getElementById('yearSelect').addEventListener('change', function() {
@@ -338,7 +337,7 @@ document.getElementById('yearSelect').addEventListener('change', function() {
 
 // Llama a la función llenarTabla con el año inicial al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    llenarTabla('2012');
+    llenarTabla('2024');
 });
 
 
