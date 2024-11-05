@@ -303,6 +303,41 @@ document.getElementById('yearSelect').addEventListener('change', function() {
   
 });
 
+let etiquetas = []; // Array para almacenar las etiquetas de las localidades
+
+function ponerEtiquetas() {
+    const mostrarEtiquetas = document.getElementById('toggleEtiquetas').checked;
+    const year = document.getElementById('yearSelect').value; // Obtiene el año seleccionado
+    const yearData = heatData[year]; // Datos para el año seleccionado
+
+    // Si se deben mostrar las etiquetas
+    if (mostrarEtiquetas) {
+        // Revisa si ya se han agregado las etiquetas
+        if (etiquetas.length === 0) {
+            yearData.forEach((localidad) => {
+                const { lat, lng, cases } = localidad;
+                const nombreLocalidad = Object.keys(coordenadas).find(key => {
+                    return coordenadas[key].lat === lat && coordenadas[key].lng === lng;
+                });
+                
+                if (nombreLocalidad) {
+                    const etiqueta = L.marker([lat, lng])
+                        .bindPopup(`${nombreLocalidad}: ${cases} casos`)
+                        .addTo(map);
+                    etiquetas.push(etiqueta); // Guarda la etiqueta para poder manejarla
+                }
+            });
+        }
+    } else {
+        // Si no se deben mostrar las etiquetas, remuévelas
+        etiquetas.forEach((etiqueta) => {
+            map.removeLayer(etiqueta);
+        });
+        etiquetas = []; // Limpia el array de etiquetas
+    }
+}
+
+
 // Llama a la función llenarTabla con el año inicial al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     llenarTabla('2012');
