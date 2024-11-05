@@ -366,7 +366,7 @@ function ponerEtiquetas() {
                 }
             });
         }
-    } else {
+     else {
         // Si no se deben mostrar las etiquetas, remuévelas
         etiquetas.forEach((etiqueta) => {
             map.removeLayer(etiqueta);
