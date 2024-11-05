@@ -285,11 +285,11 @@ function llenarTabla(year) {
             // Verifica que los nombres de las localidades coincidan
             if (localidadIntento === localidadCaso) {
                 const fila = document.createElement('tr');
-                fila.innerHTML = `
+                fila.innerHTML = 
                     <td>${localidadIntento}</td>
                     <td>${intentos}</td>
                     <td>${casos}</td>
-                `;
+                ;
                 tabla.appendChild(fila);
             }
         });
@@ -322,7 +322,7 @@ function ponerEtiquetas() {
                 
                 if (nombreLocalidad) {
                     const etiqueta = L.marker([lat, lng])
-                        .bindPopup(`${nombreLocalidad}: ${cases} casos`)
+                        .bindPopup(${nombreLocalidad}: ${cases} casos)
                         .addTo(map);
                     etiquetas.push(etiqueta); // Guarda la etiqueta para poder manejarla
                 }
@@ -341,127 +341,4 @@ function ponerEtiquetas() {
 // Llama a la función llenarTabla con el año inicial al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     llenarTabla('2012');
-});// Crear una lista de años
-const anios = [];
-for (const a in data) {
-    anios.push(a);
-}
-
-// Agregar los datos al objeto heatData para cada año
-let cuenta = 0;
-for (const dato in data) {
-    agregarDatosHeatMap(anios[cuenta], data[anios[cuenta]]);
-    cuenta++;
-}
-
-// Inicialización del mapa
-const map = L.map('map', {
-    center: [4.60971, -74.08175],
-    zoom: 12,
-    minZoom: 10,
-    maxZoom: 14,
-    zoomControl: true
 });
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
-
-const bounds = L.latLngBounds(L.latLng(4.389, -74.25), L.latLng(4.847, -73.911));
-map.setMaxBounds(bounds);
-
-// Función para actualizar el mapa de calor
-let heatLayer = null;
-function updateHeatMap(year) {
-    if (heatLayer) {
-        map.removeLayer(heatLayer);
-    }
-
-    const yearData = heatData[year];
-    if (yearData) {
-        const heatLayerData = yearData.map(d => [d.lat, d.lng, d.cases / 20]);
-        heatLayer = L.heatLayer(heatLayerData, {
-            radius: 25,
-            blur: 20,
-            maxZoom: 15
-        }).addTo(map);
-    }
-}
-
-// Inicializa el mapa con datos de 2012
-updateHeatMap(2012);
-
-// Evento para el cambio de año en el selector
-document.getElementById('yearSelect').addEventListener('change', function() {
-    const selectedYear = this.value;
-    updateHeatMap(selectedYear);
-    llenarTabla(selectedYear); // Llama a la función para llenar la tabla al cambiar el año
-});
-
-function llenarTabla(year) {
-    const tabla = document.getElementById('tabla-datos-localidades');
-    tabla.innerHTML = ''; // Limpia la tabla antes de llenarla
-
-    const intentosAnuales = data[year];
-    const casosAnuales = data_2[year];
-
-    if (intentosAnuales && casosAnuales) {
-        intentosAnuales.forEach((intento, index) => {
-            const [localidadIntento, intentos] = intento;
-            const [localidadCaso, casos] = casosAnuales[index];
-
-            // Verifica que los nombres de las localidades coincidan
-            if (localidadIntento === localidadCaso) {
-                const fila = document.createElement('tr');
-                fila.innerHTML = `
-                    <td>${localidadIntento}</td>
-                    <td>${intentos}</td>
-                    <td>${casos}</td>
-                `;
-                tabla.appendChild(fila);
-            }
-        });
-    }
-}
-
-let etiquetas = []; // Array para almacenar las etiquetas de las localidades
-
-function ponerEtiquetas() {
-    const mostrarEtiquetas = document.getElementById('toggleEtiquetas').checked;
-    const year = document.getElementById('yearSelect').value; // Obtiene el año seleccionado
-    const yearData = heatData[year]; // Datos para el año seleccionado
-
-    // Si se deben mostrar las etiquetas
-    if (mostrarEtiquetas) {
-        // Revisa si ya se han agregado las etiquetas
-        if (etiquetas.length === 0) {
-            yearData.forEach((localidad) => {
-                const { lat, lng, cases } = localidad;
-                const nombreLocalidad = Object.keys(coordenadas).find(key => {
-                    return coordenadas[key].lat === lat && coordenadas[key].lng === lng;
-                });
-                
-                if (nombreLocalidad) {
-                    const etiqueta = L.marker([lat, lng])
-                        .bindPopup(`${nombreLocalidad}: ${cases} casos`)
-                        .addTo(map);
-                    etiquetas.push(etiqueta); // Guarda la etiqueta para poder manejarla
-                }
-            });
-        }
-    } else {
-        // Si no se deben mostrar las etiquetas, remuévelas
-        etiquetas.forEach((etiqueta) => {
-            map.removeLayer(etiqueta);
-        });
-        etiquetas = []; // Limpia el array de etiquetas
-    }
-}
-
-// Llama a la función llenarTabla con el año inicial al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    llenarTabla('2012');
-});
-
-
