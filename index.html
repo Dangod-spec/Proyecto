@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,33 +17,34 @@
         </nav>
     </header>
 
-    <main class="home_main_grid">  
-      <section class="metodologia">
-      	<h1>Objetivos</h1>
-        <h1>Metodología</h1>
-        <ul>
-        	<li>
-            	<h3>Diseñar un aplicativo de visualización y manipulación de datos respecto a una base datos que copila la cantidad de suicidios registrados en la ciudad de Bogotá por sectores, con la implementación de algoritmos de limpieza de datos, agrupamiento y predicción de comportamiento general un análisis enfocado en el comportamiento de los datos y la población de la cual se obtuvieron para buscar razones, tendencias y posibles soluciones de los suicidios en la ciudad. 
-</h3>
-          	</li>
-          	<li>
-            	<h3>Se va a trabajar en limpiar y organizar la información sobre suicidios en Bogotá. Esto requiere eliminar errores, corregir datos incorrectos y asegurarnos de que toda la información sea precisa y esté lista para ser analizada. Se espera que los datos reflejen la rea…</h3>
-          	</li>
-        </ul>
-        	<p>Para este proyecto buscamos una base de datos en https://datosabiertos.bogota.gov.co/ para tener datos precisos de la problematica de los suicidios en Bogotá desde el año 2012, encontramos dos bases de datos de la misma problematica encontrada las cuales eran 'suicidios intentados' y 'suicidios consumados' ,  ambas bases de datos fueron usados para el entrenamiento pero nos enfocamos un poco mas en la base de datos de suicidios intentados ya que había más información. Posteriormente planteamos como ibjetivo predecir los suicidios en Bogotá por localidades y desarrollar una pgina web en la cual podamos visualizar con un mapa de calor la zonas y la frecuencia de intentos de suicidio. Como paso siguiente hicimos una investigación exhaustiva en la cual encontramos cuál modelo usariamos, como conculsión usamos regresión logistica. Ahora si podemos predecir datos con nuestro modelo y traer los datos por zonas, con eso hecho esta pagina web espera ser de utilidad para dar a conocer información acerca de los suicidios en Bogotá y poder desarrollar proyectos en los cuales podamos ayudar a estas personas.</p>
-       
-      </section>
-      <section class="left_databases">
+    <main>
+        <section class="section">
+            <h2>Objetivos</h2>
+            <ul>
+                <li><strong class="subtitulo">Visualización y Análisis de Datos:</strong> Crear un aplicativo que permita visualizar y analizar datos de suicidios registrados en Bogotá desde 2012, segmentados por sectores. Incluirá algoritmos para limpieza, agrupamiento y predicción para identificar patrones y tendencias.</li>
+                <li><strong class="subtitulo">Optimización de Datos:</strong> Limpiar y organizar la información sobre suicidios en Bogotá, corrigiendo errores y asegurando la precisión para un análisis confiable.</li>
+            </ul>
+        </section>
+        
+        <section class="section">
+            <h2>Metodología</h2>
+            <p><strong class="subtitulo">Fuente de datos:</strong> Los datos fueron obtenidos de <a href="https://datosabiertos.bogota.gov.co/" target="_blank">datosabiertos.bogota.gov.co</a>, usando conjuntos de "suicidios intentados" y "suicidios consumados". Nos enfocamos en "suicidios intentados" por su mayor cantidad de información.</p>
+            <p><strong class="subtitulo">Análisis predictivo:</strong> Se desarrolló un modelo de regresión logística para predecir la ocurrencia de suicidios en Bogotá, segmentado por zonas geográficas.</p>
+            <p><strong class="subtitulo">Visualización:</strong> Implementación de un mapa de calor interactivo para mostrar la frecuencia y localización de intentos de suicidio, con posibilidad de explorar los datos por año y otros filtros.</p>
+            <p><strong class="subtitulo">Objetivo final:</strong> Proveer una herramienta que permita entender mejor la problemática de los suicidios en Bogotá y apoyar el desarrollo de proyectos de prevención y asistencia en áreas críticas.</p>
+        </section>
+
+        <section class="section">
             <h2>Base de Datos</h2>
             <ul>
                 <li>
-                    <h3><a href="#">Base 1</a></h3>
-                    <p>Este set de datos recopila los casos de suicidios cometidos desde el año 2012 hasta el 2023 en Bogotá y los clasifica por localidades.</p>
+                    <h3>Base 1</h3>
+                    <p>Este set de datos recopila los casos de suicidios consumados desde 2012 hasta 2023 en Bogotá, clasificados por localidades.</p>
                     <a href="https://raw.githubusercontent.com/dangod-spec/Proyecto/main/suicidios_consumados.csv" download="suicidios_consumados.csv" class="download-link">Descargar CSV - Suicidios Consumados</a>
                 </li>
                 <li>
-                    <h3><a href="#">Base 2</a></h3>
-                    <p>Este set de datos recopila los datos de intentos de suicidios por las diferentes localidades de Bogotá desde el año 2012 hasta 2023.</p>
+                    <h3>Base 2</h3>
+                    <p>Este set de datos recopila los intentos de suicidios por localidades de Bogotá desde 2012 hasta 2023.</p>
                     <a href="https://raw.githubusercontent.com/dangod-spec/Proyecto/main/suicidios_intentados.csv" download="suicidios_intentados.csv" class="download-link">Descargar CSV - Suicidios Intentados</a>
                 </li>
             </ul>
@@ -57,6 +58,7 @@
             <li><a href="#">Daniel Felipe Godoy</a></li>
             <li><a href="#">Juan Camilo Barragan</a></li>
         </ul>
+       
     </footer>
 </body>
 </html>
