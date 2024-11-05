@@ -1,48 +1,4 @@
-// Coordenadas de las localidades
-const coordenadas = {
-    Usaquen: { lat: 4.6884, lng: -74.0340 },
-    Chapinero: { lat: 4.6112, lng: -74.0502 },
-    SantaFe: { lat: 4.5981, lng: -74.0741 },
-    SanCristobal: { lat: 4.5804, lng: -74.0990 },
-    Usme: { lat: 4.5535, lng: -74.1532 },
-    Tunjuelito: { lat: 4.6105, lng: -74.1361 },
-    Bosa: { lat: 4.6092, lng: -74.1836 },
-    Kennedy: { lat: 4.6085, lng: -74.1267 },
-    Fontibon: { lat: 4.6574, lng: -74.1211 },
-    Engativa: { lat: 4.6769, lng: -74.1213 },
-    Suba: { lat: 4.6996, lng: -74.0906 },
-    BarriosUnidos: { lat: 4.6524, lng: -74.0722 },
-    Teusaquillo: { lat: 4.6549, lng: -74.0862 },
-    LosMartires: { lat: 4.6100, lng: -74.0901 },
-    AntonioNarino: { lat: 4.6052, lng: -74.1156 },
-    PuenteAranda: { lat: 4.6355, lng: -74.1164 },
-    LaCandelaria: { lat: 4.5981, lng: -74.0800 },
-    RafaelUribeUribe: { lat: 4.5899, lng: -74.1075 },
-    CiudadBolivar: { lat: 4.5880, lng: -74.1590 },
-    Sumapaz: { lat: 4.5582, lng: -74.4067 }
-};
-
-const heatData = {}; // Objeto para almacenar los datos
-
-// Funcion para agregar datos al mapa de calor
-function agregarDatosHeatMap(anio, datos) {
-    const localidades = datos.map(item => {
-        const [nombre, casos] = item;
-        const coordenada = coordenadas[nombre.replace(/\s+/g, '')]; // Ajuste de nombre
-
-        if (coordenada) {
-            return {
-                lat: coordenada.lat,
-                lng: coordenada.lng,
-                cases: casos
-            };
-        }
-        return null;
-    }).filter(Boolean);
-
-    heatData[anio] = localidades;
-}
-
+let data;		
 // Datos de los años y localidades
 data = {
     2012: [['Usaquén', 143], ['Chapinero', 82], ['Santa Fe', 33], ['San Cristóbal', 102],
@@ -205,7 +161,90 @@ data_2={
            ['Puente Aranda', 10], ['La Candelaria', 4], ['Rafael Uribe Uribe', 24], 
            ['Ciudad Bolívar', 45], ['Sumapaz', 0]],
 }
-  
+    
+data = data1;
+
+function cambiarBaseDeDatos() {
+  console.log(data1);
+    // Alterna entre data1 y data2
+    data = (data === data1) ? data_2 : data1;
+ 	Object.keys(heatData).forEach(key => delete heatData[key]);// Crear una lista de años
+const anios = [];
+for (const a in data) {
+    anios.push(a);
+}
+
+// Agregar los datos al objeto heatData
+let cuenta = 0;
+for (const dato in data) {
+    agregarDatosHeatMap(anios[cuenta], data[anios[cuenta]]);
+    cuenta++;
+}
+
+    // Actualiza el mapa de calor con el año seleccionado
+	const selectedYear = document.getElementById('yearSelect').value;
+    updateHeatMap(selectedYear);
+
+    // Llenar la tabla con los datos de la base de datos actual
+
+
+
+}
+
+
+// Coordenadas de las localidades
+const coordenadas = {
+    Usaquen: { lat: 4.6884, lng: -74.0340 },
+    Chapinero: { lat: 4.6112, lng: -74.0502 },
+    SantaFe: { lat: 4.5981, lng: -74.0741 },
+    SanCristobal: { lat: 4.5804, lng: -74.0990 },
+    Usme: { lat: 4.5535, lng: -74.1532 },
+    Tunjuelito: { lat: 4.6105, lng: -74.1361 },
+    Bosa: { lat: 4.6092, lng: -74.1836 },
+    Kennedy: { lat: 4.6085, lng: -74.1267 },
+    Fontibon: { lat: 4.6574, lng: -74.1211 },
+    Engativa: { lat: 4.6769, lng: -74.1213 },
+    Suba: { lat: 4.6996, lng: -74.0906 },
+    BarriosUnidos: { lat: 4.6524, lng: -74.0722 },
+    Teusaquillo: { lat: 4.6549, lng: -74.0862 },
+    LosMartires: { lat: 4.6100, lng: -74.0901 },
+    AntonioNarino: { lat: 4.6052, lng: -74.1156 },
+    PuenteAranda: { lat: 4.6355, lng: -74.1164 },
+    LaCandelaria: { lat: 4.5981, lng: -74.0800 },
+    RafaelUribeUribe: { lat: 4.5899, lng: -74.1075 },
+    CiudadBolivar: { lat: 4.5880, lng: -74.1590 },
+    Sumapaz: { lat: 4.5582, lng: -74.4067 }
+};
+
+
+
+const heatData = {}; // Objeto para almacenar los datos
+
+// Funcion para agregar datos al mapa de calor
+function agregarDatosHeatMap(anio, datos) {
+    const localidades = datos.map(item => {
+        const [nombre, casos] = item;
+        const coordenada = coordenadas[nombre.replace(/\s+/g, '')]; // Ajuste de nombre
+
+        if (coordenada) {
+            return {
+                lat: coordenada.lat,
+                lng: coordenada.lng,
+                cases: casos
+            };
+        }
+        return null;
+    }).filter(Boolean);
+
+    heatData[anio] = localidades;
+}
+
+
+     
+
+// Datos de los años y localidades
+
+
 // Crear una lista de años
 const anios = [];
 for (const a in data) {
@@ -268,7 +307,7 @@ function llenarTabla(year) {
     const tabla = document.getElementById('tabla-datos-localidades');
     tabla.innerHTML = ''; // Limpia la tabla antes de llenarla
 
-    const intentosAnuales = data[year];
+    const intentosAnuales = data1[year];
     const casosAnuales = data_2[year];
 
     if (intentosAnuales && casosAnuales) {
