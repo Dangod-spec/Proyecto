@@ -1,6 +1,6 @@
 let data;		
 data1 = {
-	2012: [['Usaquén', 143], ['Chapinero', 82], ['Santa Fe', 33], ['San Cristóbal', 102],
+2012: [['Usaquén', 143], ['Chapinero', 82], ['Santa Fe', 33], ['San Cristóbal', 102],
            ['Usme', 123], ['Tunjuelito', 49], ['Bosa', 219], ['Kennedy', 180], 
            ['Fontibón', 105], ['Engativá', 151], ['Suba', 172], ['Barrios Unidos', 76], 
            ['Teusaquillo', 49], ['Los Mártires', 31], ['Antonio Nariño', 24], 
@@ -294,7 +294,7 @@ function updateHeatMap(year) {
 
 
 // Inicializa el mapa con datos de 2012
-updateHeatMap(2012);
+updateHeatMap(2024);
 
 // Evento para el cambio de año en el selector
 document.getElementById('yearSelect').addEventListener('change', function() {
@@ -337,8 +337,9 @@ document.getElementById('yearSelect').addEventListener('change', function() {
 
 // Llama a la función llenarTabla con el año inicial al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    llenarTabla('2012');
+    llenarTabla('2024');
 });
+
 
 let etiquetas = []; // Array para almacenar las etiquetas de las localidades
 
@@ -356,7 +357,7 @@ function ponerEtiquetas() {
                 const nombreLocalidad = Object.keys(coordenadas).find(key => {
                     return coordenadas[key].lat === lat && coordenadas[key].lng === lng;
                 });
-
+                
                 if (nombreLocalidad) {
                     const etiqueta = L.marker([lat, lng])
                         .bindPopup(`${nombreLocalidad}: ${cases} casos`)
