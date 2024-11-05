@@ -351,7 +351,7 @@ function ponerEtiquetas() {
     // Si se deben mostrar las etiquetas
     if (mostrarEtiquetas) {
         // Revisa si ya se han agregado las etiquetas
-
+        if (etiquetas.length === 0) {
             yearData.forEach((localidad) => {
                 const { lat, lng, cases } = localidad;
                 const nombreLocalidad = Object.keys(coordenadas).find(key => {
