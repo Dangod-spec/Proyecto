@@ -21,11 +21,19 @@
 
     <main class="predicciones_grid">
         <section class="left_map">
-            <h1>Mapa de Calor de Intentos de Suicidio en Bogotá</h1>
+            <h1 id="titulo">Mapa de Calor de Intentos de Suicidio en Bogotá</h1>
         <label>
+<button id="toggleDatabaseButton" onclick="cambiarBaseDeDatos()">Cambiar Base de Datos</button>
+          <br>
+          <br>
+
             <input type="checkbox" id="toggleEtiquetas" onchange="ponerEtiquetas()">
             Mostrar etiquetas de localidades
         </label>
+          <br>
+
+          <br>
+
             <div class="map-container">
                 <select id="yearSelect" class="year-select">
                     <option value="2024">2024</option>
@@ -77,4 +85,3 @@
     <script src="datos.js"></script>
 </body>
 </html>
-
