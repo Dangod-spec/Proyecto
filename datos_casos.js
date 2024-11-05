@@ -160,7 +160,7 @@ data_2={
            ['Teusaquillo', 9], ['Los Mártires', 7], ['Antonio Nariño', 6], 
            ['Puente Aranda', 10], ['La Candelaria', 4], ['Rafael Uribe Uribe', 24], 
            ['Ciudad Bolívar', 45], ['Sumapaz', 0]],
-}
+};
     
 data = data1;
 
