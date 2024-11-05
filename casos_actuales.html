@@ -13,19 +13,27 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="casos_actuales.html">Casos</a></li>
-                <li><a href="Predicciones.html">Predicciones</a></li>
+                <li><a href="./casos_actuales.html">Casos</a></li>
+                <li><a href="./Predicciones.html">Predicciones</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="predicciones_grid">
         <section class="left_map">
-            <h1>Mapa de Calor de Intentos de Suicidio en Bogotá</h1>
-            <label>
-                <input type="checkbox" id="toggleEtiquetas" onchange="ponerEtiquetas()">
-                Mostrar etiquetas de localidades
-            </label>
+            <h1 id="titulo">Mapa de Calor de Intentos de Suicidio en Bogotá</h1>
+        <label>
+<button id="toggleDatabaseButton" onclick="cambiarBaseDeDatos()">Cambiar Base de Datos</button>
+          <br>
+          <br>
+
+            <input type="checkbox" id="toggleEtiquetas" onchange="ponerEtiquetas()">
+            Mostrar etiquetas de localidades
+        </label>
+          <br>
+
+          <br>
+
             <div class="map-container">
                 <select id="yearSelect" class="year-select">
                     <option value="2012">2012</option>
@@ -62,7 +70,6 @@
             </table>
         </section>
     </main>
-
     <footer>
         <ul class="footer-right" >
             <li>
