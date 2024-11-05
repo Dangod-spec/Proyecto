@@ -307,7 +307,4 @@ document.getElementById('yearSelect').addEventListener('change', function() {
 document.addEventListener('DOMContentLoaded', function() {
     llenarTabla('2012');
 });
-// Llama a la función llenarTabla con el año inicial al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
-    llenarTabla('2012');
-});
+
