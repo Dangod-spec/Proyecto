@@ -13,6 +13,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1e1e2f;
     color: #f5f5f5;
+    line-height: 1.6;
 }
 
 /* Estilos de navegación */
@@ -46,42 +47,56 @@ nav ul li a.active {
 }
 
 /* Estilo de la sección principal */
-.home_main_grid {
+main {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 30px;
     padding: 40px;
 }
 
-.left_databases {
+.section {
     background-color: #29293d;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.left_databases h2 {
+.section h2 {
     font-size: 2.4rem;
     color: #e5e5f7;
     margin-bottom: 20px;
 }
 
-.left_databases ul li {
-    margin-bottom: 20px;
+.section ul {
+    list-style: none;
+    padding-left: 20px;
 }
 
-.left_databases ul li h3 a {
-    font-size: 2rem;
-    color: #c8c8d1;
-    text-decoration: none;
-}
-
-.left_databases ul li p {
+.section ul li {
     font-size: 1.6rem;
     color: #c8c8d1;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
+/* Estilos para los subtítulos */
+.section p strong,
+.section ul li strong {
+    font-size: 1.8rem; /* Tamaño aumentado */
+    color: #ffffff; /* Color blanco intenso */
+}
+
+.section p, .section a {
+    font-size: 1.6rem;
+    color: #c8c8d1;
+}
+
+.section h3 {
+    font-size: 2rem;
+    color: #c8c8d1;
+    margin-bottom: 8px;
+}
+
+/* Enlace de descarga */
 .download-link {
     display: inline-block;
     padding: 10px 15px;
@@ -91,42 +106,20 @@ nav ul li a.active {
     text-decoration: none;
     border-radius: 6px;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 .download-link:hover {
     background-color: #45a049;
 }
-.metodologia{
-  	background-color: #29293d;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  	display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-.metodologia ul li h3{
-	font-size: 1.6rem;
-    color: #c8c8d1;
-    margin: 10px 0;
 
-}
-.metodologia h1{
-	font-size: 2.4rem;
-    color: #e5e5f7;
-    margin-bottom: 20px;}
-
-.metodologia p{
-  	font-size: 1.6rem;
-    color: #c8c8d1;
-    margin: 10px 0;
-}
 /* Footer */
 footer {
     background-color: #33334d;
     padding: 20px;
     text-align: center;
     color: #f5f5f5;
+    margin-top: 20px;
 }
 
 .footer-links {
@@ -134,6 +127,7 @@ footer {
     justify-content: center;
     gap: 20px;
     list-style: none;
+    margin-bottom: 10px;
 }
 
 .footer-links li a {
@@ -145,4 +139,9 @@ footer {
 
 .footer-links li a:hover {
     color: #6a67ce;
+}
+
+footer p {
+    font-size: 1.4rem;
+    color: #c8c8d1;
 }
