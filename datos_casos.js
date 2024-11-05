@@ -340,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
     llenarTabla('2012');
 });
 
-
 let etiquetas = []; // Array para almacenar las etiquetas de las localidades
 
 function ponerEtiquetas() {
@@ -357,7 +356,7 @@ function ponerEtiquetas() {
                 const nombreLocalidad = Object.keys(coordenadas).find(key => {
                     return coordenadas[key].lat === lat && coordenadas[key].lng === lng;
                 });
-                
+
                 if (nombreLocalidad) {
                     const etiqueta = L.marker([lat, lng])
                         .bindPopup(`${nombreLocalidad}: ${cases} casos`)
@@ -366,7 +365,7 @@ function ponerEtiquetas() {
                 }
             });
         }
-     else {
+    } else {
         // Si no se deben mostrar las etiquetas, remuévelas
         etiquetas.forEach((etiqueta) => {
             map.removeLayer(etiqueta);
