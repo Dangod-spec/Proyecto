@@ -96,7 +96,7 @@ nav ul li a.active {
 .download-link:hover {
     background-color: #45a049;
 }
-.metodologia{
+.metodologia {
     background-color: #29293d;
     padding: 20px;
     border-radius: 8px;
@@ -107,7 +107,7 @@ nav ul li a.active {
     color: #e5e5f7;
     margin-bottom: 20px;}
 
-.metodologia p{
+.metodologia p {
   	font-size: 1.6rem;
     color: #c8c8d1;
     margin: 10px 0;
